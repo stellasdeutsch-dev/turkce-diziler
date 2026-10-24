@@ -1593,8 +1593,8 @@ function xInit(){
   ScrollTrigger.create({trigger:'#stWrap',start:'center center',end:'+='+(N*(desk.matches?55:48))+'%',pin:true,pinSpacing:true,anticipatePin:1,onUpdate:function(self){var i=Math.min(N-1,Math.floor(self.progress*N*0.999));show(i);$('#stBar').style.transform='scaleY('+((i+1)/N)+')'}});
 
   // chart intro sweep
-  ScrollTrigger.create({trigger:'#chartSvg',start:'top 80%',once:true,onEnter:function(){var o={e:1};gsap.to(o,{e:+ep.value||12,duration:1.4,ease:'power2.out',onUpdate:function(){ep.value=Math.round(o.e);upd()}})}});
-  var ln=$('#cLine'),L=ln.getTotalLength();gsap.fromTo(ln,{strokeDasharray:L,strokeDashoffset:L},{strokeDashoffset:0,duration:1.6,ease:'power2.out',scrollTrigger:{trigger:'#chartSvg',start:'top 85%',once:true}});
+  ScrollTrigger.create({trigger:'.chart',start:'top 80%',once:true,onEnter:function(){var o={e:1};gsap.to(o,{e:+ep.value||12,duration:1.4,ease:'power2.out',onUpdate:function(){ep.value=Math.round(o.e);upd()}})}});
+  var ln=$('#cLine'),L=ln.getTotalLength();gsap.fromTo(ln,{strokeDasharray:L,strokeDashoffset:L},{strokeDashoffset:0,duration:1.6,ease:'power2.out',scrollTrigger:{trigger:'.chart',start:'top 85%',once:true}});
 
   // phrases pop
   ScrollTrigger.batch('.ph',{start:'top 92%',once:true,onEnter:function(b){gsap.from(b,{scale:.5,rotation:function(){return gsap.utils.random(-8,8)},duration:.7,ease:'elastic.out(1,.55)',stagger:.05})}});
